@@ -1,8 +1,8 @@
 {
-    "name": "CallsMusic",
-    "description": "Open-Source bot to play songs in your Telegram's Group Voice Chat. Powered by PyTgCalls.",
+    "name": "LightningMusicBot",
+    "description": "bot to play songs in your Telegram's Group Voice Chat. Powered by PyTgCalls.",
     "keywords": ["music", "voicechat", "telegram"],
-    "repository": "https://github.com/suprojects/CallsMusicHeroku",
+    "repository": "https://github.com/developer-boy-sdowner/Thunder_Music",
     "stack": "container",
     "env": {
         "SESSION_NAME": {
