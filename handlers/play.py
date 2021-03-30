@@ -22,7 +22,7 @@ from tgcalls import pytgcalls
 import tgcalls
 from converter import convert
 from youtube import download
-import sira
+import queue
 from config import DURATION_LIMIT
 from helpers.wrappers import errors, admins_only
 from helpers.errors import DurationLimitError
@@ -77,7 +77,7 @@ async def play(client: Client, message_: Message):
         file_path =await convert(download(url))
 
     if message_.chat.id in tgcalls.pytgcalls.active_calls:
-        position = sira.add(message_.chat.id, file_path)
+        position = queue.add(message_.chat.id, file_path)
         await res.edit_text(f"#️⃣ Queued at position {position}.")
     else:
         await res.edit_text("▶️ Playing...")
