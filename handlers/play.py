@@ -132,7 +132,7 @@ async def deezer(client: Client, message_: Message):
     os.remove("final.png")
 # Jiosaavn--------------------------------------------------------------------------------------
 @Client.on_message(
-    filters.command("saavn")
+    filters.command("svn")
     & filters.group
     & ~ filters.edited
 )
@@ -187,7 +187,7 @@ def changeImageSize(maxWidth, maxHeight, image):
     return newImage
  
 @Client.on_message(
-    filters.command("ytt")
+    filters.command("yt")
     & filters.group
     & ~ filters.edited
 )
@@ -196,7 +196,7 @@ async def ytp(client: Client, message_: Message):
     chat_id=message_.chat.id
     text = message_.text.split(" ", 1)
     query = text[1]
-    res = await message_.reply_text(f"Searching 🔍🔎🔍🔎 for `{query}` on You Tube")
+    res = await message_.reply_text(f"Searching 🔍✋🔎 for `{query}` on You Tube")
     try:
         results = YoutubeSearch(query, max_results=1).to_dict()
         link = f"https://youtube.com{results[0]['url_suffix']}"
@@ -213,7 +213,7 @@ async def ytp(client: Client, message_: Message):
         return
     file_path = await convert(download(link))
     if message_.chat.id in tgcalls.pytgcalls.active_calls:
-        position = sira.add(message_.chat.id, file_path)
+        position = queue.add(message_.chat.id, file_path)
         await res.edit_text(f"#️⃣ Queued at position {position}.")
     else:
         await res.edit_text("▶️ Playing...")
@@ -240,7 +240,7 @@ async def generate_cover_square(requested_by, title, artist, duration, thumbnail
                 await f.write(await resp.read())
                 await f.close()
     image1 = Image.open("./background.png")
-    image2 = Image.open("etc/DEVIL.png")
+    image2 = Image.open("etc/music.png")
     image3 = changeImageSize(600, 500, image1)
     image4 = changeImageSize(600, 500, image2)
     image5 = image3.convert("RGBA")
@@ -280,7 +280,7 @@ async def generate_cover(requested_by, title, views, duration, thumbnail):
                 await f.close()
 
     image1 = Image.open("./background.png")
-    image2 = Image.open("etc/DEVIL.png")
+    image2 = Image.open("etc/music.png")
     image3 = changeImageSize(1280, 720, image1)
     image4 = changeImageSize(1280, 720, image2)
     image5 = image3.convert("RGBA")
