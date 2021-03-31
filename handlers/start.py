@@ -12,7 +12,7 @@ async def start_(client: Client, message: Message):
         f"""<b>👋🏻 Hi {message.from_user.first_name}!</b>
 
 I am Lightning Music Bot, that lets you play music in your Telegram groups voice chat.
- Use The Button 🔘 Bellow To Know About Me And My Commands. 
+ . 
 
 
 
@@ -37,7 +37,7 @@ Use The Button 🔘 Bellow To Know About Me And My Comandas.
                 ],
                 [
                     InlineKeyboardButton(
-                        "Commands How To Use Bot", url="https://www.paypal.me/devilgaurav"
+                        "Commands How To Use Bot", url="https://telegra.ph/Developer-03-31"
                     )
                 ]
             ]
