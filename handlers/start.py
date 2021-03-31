@@ -22,7 +22,7 @@ Use The Button 🔘 Bellow To Know About Me And My Comandas.
             [
                 [
                     InlineKeyboardButton(
-                        "🎶Add Me To Group", url="t.me/{}?startgroup=true".format(context.bot.username)"
+                        "🎶Add Me To Group", url="t.me/"
                     )
                 ],
                 [
