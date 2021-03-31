@@ -38,7 +38,7 @@ chat_id = None
 async def play(client: Client, message_: Message):
     audio = (message_.reply_to_message.audio or message_.reply_to_message.voice) if message_.reply_to_message else None
     chat_id=message_.chat.id
-    res = await message_.reply_text("🔄 Processing...")
+    res = await message_.reply_text("✋⚡ Processing...")
 
     if audio:
         if round(audio.duration / 60) > DURATION_LIMIT:
@@ -78,19 +78,19 @@ async def play(client: Client, message_: Message):
 
     if message_.chat.id in tgcalls.pytgcalls.active_calls:
         position = sira.add(message_.chat.id, file_path)
-        await res.edit_text(f"#️⃣ Queued at position {position}.")
+        await res.edit_text(f"#️⃣🤟 Queued at position {position}.")
     else:
         await res.edit_text("▶️ Playing...")
         res.delete
         m = await client.send_photo(
         chat_id=message_.chat.id,
-        photo="https://telegra.ph/file/fe07b15733ed56f103cb4.jpg",
-        caption=f"Playing Your song Via Devil music bot.",
+        photo="https://telegra.ph/file/2657bbfc0754dc59ddcf7.png",
+        caption=f"Playing Your song Via Lightning ⚡ music bot.",
          ) 
         tgcalls.pytgcalls.join_group_call(message_.chat.id, file_path)
 
 @Client.on_message(
-    filters.command("deezer")
+    filters.command("dzr")
     & filters.group
     & ~ filters.edited
 )
@@ -98,7 +98,7 @@ async def deezer(client: Client, message_: Message):
     requested_by = message_.from_user.first_name
     text = message_.text.split(" ", 1)
     queryy = text[1]
-    res = await message_.reply_text(f"Searching 🔍🔎🔍🔎 for `{queryy}` on deezer")
+    res = await message_.reply_text(f"Searching 🔍✋🔎 for `{queryy}` on deezer")
     try:
         arq = ARQ("https://thearq.tech")
         r = await arq.deezer(query=queryy, limit=1)
@@ -119,7 +119,7 @@ async def deezer(client: Client, message_: Message):
     if message_.chat.id in tgcalls.pytgcalls.active_calls:
         await res.edit("adding in queue")
         position = sira.add(message_.chat.id, file_path)
-        await res.edit_text(f"#️⃣ Queued at position {position}.")
+        await res.edit_text(f"#️⃣ 🤟Queued at position {position}.")
     else:
         await res.edit_text("▶️ Playing...")
         tgcalls.pytgcalls.join_group_call(message_.chat.id, file_path)
@@ -132,7 +132,7 @@ async def deezer(client: Client, message_: Message):
     os.remove("final.png")
 # Jiosaavn--------------------------------------------------------------------------------------
 @Client.on_message(
-    filters.command("saavn")
+    filters.command("svn")
     & filters.group
     & ~ filters.edited
 )
@@ -141,7 +141,7 @@ async def jiosaavn(client: Client, message_: Message):
     chat_id=message_.chat.id
     text = message_.text.split(" ", 1)
     query = text[1]
-    res = await message_.reply_text(f"Searching 🔍🔎🔍🔎 for `{query}` on jio saavn")
+    res = await message_.reply_text(f"Searching 🔍✋🔎 for `{query}` on jio saavn")
     try:
         async with aiohttp.ClientSession() as session:
             async with session.get(
@@ -163,7 +163,7 @@ async def jiosaavn(client: Client, message_: Message):
     file_path= await convert(wget.download(slink))
     if message_.chat.id in tgcalls.pytgcalls.active_calls:
         position = sira.add(message_.chat.id, file_path)
-        await res.edit_text(f"#️⃣ Queued at position {position}.")
+        await res.edit_text(f"#️⃣🤟 Queued at position {position}.")
     else:
         await res.edit_text("▶️ Playing...")
         tgcalls.pytgcalls.join_group_call(message_.chat.id, file_path)
@@ -187,7 +187,7 @@ def changeImageSize(maxWidth, maxHeight, image):
     return newImage
  
 @Client.on_message(
-    filters.command("ytt")
+    filters.command("yt")
     & filters.group
     & ~ filters.edited
 )
@@ -196,7 +196,7 @@ async def ytp(client: Client, message_: Message):
     chat_id=message_.chat.id
     text = message_.text.split(" ", 1)
     query = text[1]
-    res = await message_.reply_text(f"Searching 🔍🔎🔍🔎 for `{query}` on You Tube")
+    res = await message_.reply_text(f"Searching 🔍✋🔎 for `{query}` on You Tube")
     try:
         results = YoutubeSearch(query, max_results=1).to_dict()
         link = f"https://youtube.com{results[0]['url_suffix']}"
@@ -214,7 +214,7 @@ async def ytp(client: Client, message_: Message):
     file_path = await convert(download(link))
     if message_.chat.id in tgcalls.pytgcalls.active_calls:
         position = sira.add(message_.chat.id, file_path)
-        await res.edit_text(f"#️⃣ Queued at position {position}.")
+        await res.edit_text(f"#️⃣ 🤟Queued at position {position}.")
     else:
         await res.edit_text("▶️ Playing...")
         tgcalls.pytgcalls.join_group_call(message_.chat.id, file_path)
@@ -240,7 +240,7 @@ async def generate_cover_square(requested_by, title, artist, duration, thumbnail
                 await f.write(await resp.read())
                 await f.close()
     image1 = Image.open("./background.png")
-    image2 = Image.open("etc/DEVIL.png")
+    image2 = Image.open("etc/music.png")
     image3 = changeImageSize(600, 500, image1)
     image4 = changeImageSize(600, 500, image2)
     image5 = image3.convert("RGBA")
@@ -280,7 +280,7 @@ async def generate_cover(requested_by, title, views, duration, thumbnail):
                 await f.close()
 
     image1 = Image.open("./background.png")
-    image2 = Image.open("etc/DEVIL.png")
+    image2 = Image.open("etc/music.png")
     image3 = changeImageSize(1280, 720, image1)
     image4 = changeImageSize(1280, 720, image2)
     image5 = image3.convert("RGBA")
