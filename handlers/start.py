@@ -11,32 +11,33 @@ async def start_(client: Client, message: Message):
     await message.reply_text(
         f"""<b>👋🏻 Hi {message.from_user.first_name}!</b>
 
-I am Devil Music Bot, an open-source bot that lets you play music in your Telegram groups voice chat.
-This bot is based on su music project and hamkers vc bot. 
+I am Lightning Music Bot, that lets you play music in your Telegram groups voice chat.
+ Use The Button 🔘 Bellow To Know About Me And My Comandas. 
 
-To add in your group contact us at @devilcodes_network
 
-Use the buttons below to know more about me.""",
+
+Use The Button 🔘 Bellow To Know About Me And My Comandas. 
+""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "⚒ Source code", url="https://github.com/edguru/devilsmusic"
+                        "🎶Add Me To Group", url="t.me/{}?startgroup=true".format(context.bot.username)"
                     )
                 ],
                 [
                     InlineKeyboardButton(
-                        "💬 Group", url="https://t.me/devilcodes_network"
+                        "💬 Support Group", url="https://t.me/chattingwithothers"
                     ),
                     InlineKeyboardButton(
-                        "Channel 🔈", url="https://t.me/devilcodes_inc"
+                        "Our Group Management Bot", url="https://t.me/Thunderking_ro_bot"
                     ),
                     InlineKeyboardButton(
-                        "offtopic 😈", url="https://t.me/devils_crazy_chats" )
+                        "CoMes Under Wasp ", url="https://t.me/WaspGroupcommunity" )
                 ],
                 [
                     InlineKeyboardButton(
-                        "Donate the coder", url="https://www.paypal.me/devilgaurav"
+                        "Commands How To Use Bot", url="https://www.paypal.me/devilgaurav"
                     )
                 ]
             ]
