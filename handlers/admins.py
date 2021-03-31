@@ -1,7 +1,7 @@
 from pyrogram import Client, filters
 from pyrogram.types import Message
 import tgcalls
-import queue
+import sira
 from config import SUDO_USERS
 from cache.admins import set
 from helpers.wrappers import errors, admins_only
