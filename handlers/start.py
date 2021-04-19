@@ -1,6 +1,7 @@
 from pyrogram import Client, filters
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
-
+from telegram.ext import (CallbackContext, CallbackQueryHandler, CommandHandler,
+                          Filters, MessageHandler)
 
 @Client.on_message(
     filters.command("start")
@@ -24,6 +25,11 @@ Use The Button 🔘 Bellow To Know About Me And My Comandas.
                     InlineKeyboardButton(
                         "🎶 Lightning Music Player", url="t.me/vcmusicplayerlightning"
                     )
+                ],
+                [    InlineKeyboardButton(
+                            text="☑️ Add Saitama to your group",
+                            url="t.me/{}?startgroup=true".format(
+                                context.bot.username))
                 ],
                 [
                     InlineKeyboardButton(
