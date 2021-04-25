@@ -1,6 +1,6 @@
 from pyrogram import Client, filters
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
-from telegram.ext import (CallbackContext, CallbackQueryHandler, CommandHandler,
+import (CallbackContext, CallbackQueryHandler, CommandHandler,
                           Filters, MessageHandler)
 
 @Client.on_message(
