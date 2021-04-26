@@ -1,7 +1,6 @@
 from pyrogram import Client, filters
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
-import (CallbackContext, CallbackQueryHandler, CommandHandler,
-                          Filters, MessageHandler)
+
 
 @Client.on_message(
     filters.command("start")
